@@ -17,8 +17,8 @@ class InventoryItemTest {
     @Test
     void testInventoryItemPrice() {
         InventoryItem item = new InventoryItem();
-        item.setPrice(99.99);
+        item.setPrice(new java.math.BigDecimal("99.99"));
         
-        assertEquals(99.99, item.getPrice(), "Price should match the set value");
+        assertEquals(new java.math.BigDecimal("99.99"), item.getPrice(), "Price should match the set value");
     }
 }
