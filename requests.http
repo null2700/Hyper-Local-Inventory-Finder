@@ -1,0 +1,118 @@
+### REST Client for Inventory Management API
+
+@host = http://localhost:8081
+@userLat = 18.4600
+@userLng = 73.8200
+@radius = 5
+@storeId = 550e8400-e29b-41d4-a716-446655440000
+
+### ============================================
+### STEP 1: UPLOAD IMAGES
+### ============================================
+
+# Upload Mango
+POST {{host}}/api/v1/items/upload-image
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="mango.jpg"
+Content-Type: image/jpeg
+
+< ./images/mango.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# Upload Strawberry
+POST {{host}}/api/v1/items/upload-image
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="strawberry.jpg"
+Content-Type: image/jpeg
+
+< ./images/strawberry.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+# Upload Banana
+POST {{host}}/api/v1/items/upload-image
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="banana.jpg"
+Content-Type: image/jpeg
+
+< ./images/banana.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+### ============================================
+### STEP 2: CREATE ITEMS (Linked to Uploaded Filenames)
+### ============================================
+
+# Create Mango Item
+POST {{host}}/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "Fresh Mangoes",
+  "description": "Sweet and juicy mangoes from local orchards",
+  "category": "GROCERY",
+  "price": 120.00,
+  "stockQuantity": 40,
+  "storeName": "Local Grocery Store",
+  "storeId": "{{storeId}}",
+  "latitude": {{userLat}},
+  "longitude": {{userLng}},
+  "imageUrl": "http://localhost:8081/images/mango.jpg",
+  "unit": "500g"
+}
+
+###
+
+# Create Strawberry Item
+POST {{host}}/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "Fresh Strawberries",
+  "description": "Sweet, organic strawberries in a basket",
+  "category": "GROCERY",
+  "price": 150.00,
+  "stockQuantity": 40,
+  "storeName": "Local Grocery Store",
+  "storeId": "{{storeId}}",
+  "latitude": {{userLat}},
+  "longitude": {{userLng}},
+  "imageUrl": "http://localhost:8081/images/strawberry.jpg",
+  "unit": "500g"
+}
+
+###
+
+# Create Banana Item
+POST {{host}}/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "Fresh Bananas",
+  "description": "A bunch of premium yellow bananas",
+  "category": "GROCERY",
+  "price": 80.00,
+  "stockQuantity": 60,
+  "storeName": "Local Grocery Store",
+  "storeId": "{{storeId}}",
+  "latitude": {{userLat}},
+  "longitude": {{userLng}},
+  "imageUrl": "http://localhost:8081/images/banana.jpg",
+  "unit": "1kg"
+}
+
+### ============================================
+### SEARCH & VERIFY
+### ============================================
+
+# Search items to see if they appear with images
+GET {{host}}/api/v1/items/search?lat={{userLat}}&lng={{userLng}}&radius={{radius}}&sort=distance

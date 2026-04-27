@@ -1,0 +1,16 @@
+-- Sample data for development (Pune, India area - near user location)
+INSERT INTO stores (id, name, latitude, longitude, address, pincode, rating, delivery_radius_km) VALUES
+('550e8400-e29b-41d4-a716-446655440000', 'Local Grocery Store', 18.4600, 73.8200, '123 Local Street, Pune, Maharashtra', '411001', 4.5, 5.0),
+('550e8400-e29b-41d4-a716-446655440001', 'Fresh Market Hub', 18.4700, 73.8300, '456 Market Road, Pune, Maharashtra', '411002', 4.2, 3.0),
+('550e8400-e29b-41d4-a716-446655440002', 'Corner Shop Plus', 18.4800, 73.8400, '789 Corner Lane, Pune, Maharashtra', '411003', 4.7, 4.0),
+('550e8400-e29b-41d4-a716-446655440003', 'Daily Mart Express', 18.4900, 73.8500, '321 Express Way, Pune, Maharashtra', '411004', 4.3, 6.0);
+
+INSERT INTO inventory_items (id, name, description, category, price, stock_quantity, store_name, store_id, latitude, longitude, image_url, unit, is_available, last_updated) VALUES
+('550e8400-e29b-41d4-a716-446655440010', 'Organic Bananas', 'Fresh organic bananas from local farms', 'GROCERY', 60.00, 50, 'Local Grocery Store', '550e8400-e29b-41d4-a716-446655440000', 18.4600, 73.8200, '', '500g', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440011', 'Amul Milk', 'Fresh Amul whole milk, 1 liter', 'BEVERAGES', 65.00, 30, 'Local Grocery Store', '550e8400-e29b-41d4-a716-446655440000', 18.4600, 73.8200, '', '1L', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440012', 'Lays Potato Chips', 'Crispy salted Lays potato chips', 'SNACKS', 20.00, 100, 'Fresh Market Hub', '550e8400-e29b-41d4-a716-446655440001', 18.4700, 73.8300, '', '150g', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440013', 'Birthday Cake', 'Delicious chocolate birthday cake', 'GIFTS', 800.00, 5, 'Corner Shop Plus', '550e8400-e29b-41d4-a716-446655440002', 18.4800, 73.8400, '', '1kg', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440014', 'Vim Dish Soap', 'Lemon scented Vim dish washing liquid', 'HOUSEHOLD', 45.00, 20, 'Local Grocery Store', '550e8400-e29b-41d4-a716-446655440000', 18.4600, 73.8200, '', '500ml', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440015', 'Fresh Tomatoes', 'Red ripe tomatoes', 'GROCERY', 40.00, 75, 'Daily Mart Express', '550e8400-e29b-41d4-a716-446655440003', 18.4900, 73.8500, '', '1kg', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440016', 'Coca Cola', 'Refreshing Coca Cola soft drink', 'BEVERAGES', 35.00, 40, 'Fresh Market Hub', '550e8400-e29b-41d4-a716-446655440001', 18.4700, 73.8300, '', '600ml', true, CURRENT_TIMESTAMP),
+('550e8400-e29b-41d4-a716-446655440017', 'Dark Chocolate', 'Premium dark chocolate bar', 'SNACKS', 120.00, 25, 'Corner Shop Plus', '550e8400-e29b-41d4-a716-446655440002', 18.4800, 73.8400, '', '100g', true, CURRENT_TIMESTAMP);
